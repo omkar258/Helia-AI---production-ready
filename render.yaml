@@ -37,6 +37,8 @@ services:
         sync: false  # Set to your Vercel URL
       - key: DEBUG
         value: "false"
+      - key: DISABLE_RAG
+        value: "true"
       - key: APP_NAME
         value: "Helia AI"
       - key: APP_VERSION

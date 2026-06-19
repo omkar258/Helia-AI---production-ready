@@ -41,6 +41,10 @@ class Settings(BaseSettings):
     OLLAMA_BASE_URL: str = "http://localhost:11434"
     OLLAMA_MODEL: str = "llama3.1"
 
+    # --- Performance / Optimization ---
+    DISABLE_RAG: bool = False
+
+
     @property
     def LLM_MODEL(self) -> str:
         """Return the model name for the active provider."""

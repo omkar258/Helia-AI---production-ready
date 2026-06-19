@@ -29,9 +29,17 @@ class RAGService:
         if self._initialized:
             return
 
+        from app.core.config import settings
+
+        if settings.DISABLE_RAG:
+            logger.info("RAG service is disabled via configuration (DISABLE_RAG=true). skipping load.")
+            self._initialized = True
+            return
+
         try:
             from sentence_transformers import SentenceTransformer
             import faiss
+
 
             logger.info("Loading embedding model: all-MiniLM-L6-v2...")
             self.model = SentenceTransformer("all-MiniLM-L6-v2")
