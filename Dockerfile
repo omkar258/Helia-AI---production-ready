@@ -17,11 +17,11 @@ RUN useradd -m -u 1000 user
 RUN mkdir -p /tmp/hf_cache && chown -R user:user /tmp/hf_cache
 
 # Copy requirements and install
-COPY requirements.txt .
+COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy application files and set ownership
-COPY --chown=user:user . .
+# Copy backend files and set ownership
+COPY --chown=user:user backend/ .
 
 # Switch to non-root user
 USER user

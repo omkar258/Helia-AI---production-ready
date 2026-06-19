@@ -228,26 +228,33 @@ npm run build
 
 ## 📦 Deployment
 
-### Option 1: Vercel (Frontend) + Render (Backend) — *Recommended, Free*
+### Option 1: Vercel (Frontend) + Hugging Face Spaces (Backend) — *Recommended, Free (Full RAG)*
 
-#### Backend → Render
+Since Hugging Face Spaces provides **16 GB RAM** for free, you can run the full PyTorch + SentenceTransformers RAG system without Out-Of-Memory (OOM) errors.
 
-1. Push your code to a GitHub repository
-2. Go to [dashboard.render.com](https://dashboard.render.com) → **New Blueprint**
-3. Connect your GitHub repo — Render will auto-detect `render.yaml`
-4. Set the secret environment variables in Render dashboard:
-   - `GROQ_API_KEY` → your Groq API key
-   - `FRONTEND_URL` → your Vercel URL (e.g., `https://helia-ai.vercel.app`)
-   - `CORS_ORIGINS_STR` → same as FRONTEND_URL
-5. Deploy! The backend will be live at `https://helia-backend.onrender.com`
+#### Backend → Hugging Face Spaces
+
+1. Go to **[huggingface.co/spaces](https://huggingface.co/spaces)** and click **Create new Space**.
+2. Name your space (e.g., `helia-backend`) and select **Docker** as the SDK.
+3. Choose the **Blank** template (default).
+4. Keep it **Public** (required for Vercel to access the API).
+5. Once created, go to the Space **Settings** page and add your **Variables and Secrets**:
+   - Add Secret: `GROQ_API_KEY` → your Groq API key
+   - Add Variable: `FRONTEND_URL` → your Vercel URL (e.g., `https://helia-ai.vercel.app`)
+   - Add Variable: `CORS_ORIGINS_STR` → same as FRONTEND_URL
+   - Add Variable: `DISABLE_RAG` → `false` (to enable full RAG features)
+6. Clone the space repository locally or push your existing git repo directly to the Hugging Face space remote URL.
+
+*Note: Hugging Face automatically detects the `backend/Dockerfile` if you configure the Space's entry directory or push the backend directly.*
 
 #### Frontend → Vercel
 
 1. Go to [vercel.com](https://vercel.com) → **Add New Project**
 2. Import your GitHub repo, set **Root Directory** to `frontend`
 3. Add environment variable:
-   - `NEXT_PUBLIC_API_URL` → `https://helia-backend.onrender.com/api/v1`
+   - `NEXT_PUBLIC_API_URL` → `https://<your-username>-<your-space-name>.hf.space/api/v1`
 4. Deploy! Frontend will be live at `https://your-app.vercel.app`
+
 
 ### Option 2: Docker Compose (Self-hosted)
 
