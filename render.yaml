@@ -1,0 +1,43 @@
+# Render Blueprint – deploy Helia AI backend + PostgreSQL
+# Deploy: Connect your GitHub repo at https://dashboard.render.com/blueprints
+
+databases:
+  - name: helia-db
+    databaseName: helia_db
+    user: helia_user
+    plan: free
+    region: oregon
+
+services:
+  - type: web
+    name: helia-backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    region: oregon
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: helia-db
+          property: connectionString
+        # Render gives postgresql://, we need postgresql+asyncpg://
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: LLM_PROVIDER
+        value: groq
+      - key: GROQ_API_KEY
+        sync: false  # Set manually in Render dashboard
+      - key: GROQ_MODEL
+        value: llama-3.1-8b-instant
+      - key: FRONTEND_URL
+        sync: false  # Set to your Vercel URL
+      - key: CORS_ORIGINS_STR
+        sync: false  # Set to your Vercel URL
+      - key: DEBUG
+        value: "false"
+      - key: APP_NAME
+        value: "Helia AI"
+      - key: APP_VERSION
+        value: "1.0.0"

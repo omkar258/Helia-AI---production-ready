@@ -1,0 +1,12 @@
+[
+  {"title": "Morning Gratitude", "content": "Start your day by listing 3 things you are grateful for. This shifts your focus to positive aspects of life.", "category": "mindfulness"},
+  {"title": "Hydration Reminder", "content": "Drink at least 8 glasses of water daily. Dehydration can affect mood and cognitive function.", "category": "nutrition"},
+  {"title": "Digital Detox Hour", "content": "Spend one hour daily without screens. Read a book, take a walk, or practice a hobby instead.", "category": "lifestyle"},
+  {"title": "Mindful Eating", "content": "Eat slowly, savor each bite, and pay attention to hunger and fullness cues. This improves digestion and satisfaction.", "category": "nutrition"},
+  {"title": "Nature Connection", "content": "Spend at least 20 minutes in nature daily. Green spaces reduce cortisol levels and improve mood.", "category": "exercise"},
+  {"title": "Evening Reflection", "content": "Before bed, reflect on one thing that went well today and one thing you learned. This builds positive neural pathways.", "category": "mindfulness"},
+  {"title": "Acts of Kindness", "content": "Perform one small act of kindness daily. Helping others boosts your own happiness and sense of purpose.", "category": "social"},
+  {"title": "Creative Expression", "content": "Engage in creative activities like drawing, writing, or music for 15 minutes. Creativity is therapeutic and reduces stress.", "category": "lifestyle"},
+  {"title": "Stretch Break", "content": "Every 90 minutes, stand up and stretch for 2-3 minutes. This reduces physical tension and refreshes your mind.", "category": "exercise"},
+  {"title": "Deep Breathing Moment", "content": "Take 3 deep breaths before starting any new task. This centers your attention and reduces reactive stress.", "category": "mindfulness"}
+]
