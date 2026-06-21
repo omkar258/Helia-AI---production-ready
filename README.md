@@ -1,3 +1,11 @@
+---
+title: Helia AI
+emoji: 🧠
+colorFrom: indigo
+colorTo: purple
+sdk: docker
+app_port: 7860
+---
 # 🌟 Helia AI – Intelligent Mental Well-being Assistant
 
 <div align="center">
