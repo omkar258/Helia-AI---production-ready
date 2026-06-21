@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Create a non-root user for security (Hugging Face Spaces runs as user 1000)
 RUN useradd -m -u 1000 user
 RUN mkdir -p /tmp/hf_cache && chown -R user:user /tmp/hf_cache
+RUN chown -R user:user /app
 
 # Copy requirements and install
 COPY backend/requirements.txt .
